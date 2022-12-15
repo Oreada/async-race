@@ -1,0 +1,448 @@
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Roboto"), url("../asset/fonts/roboto-v29-latin_cyrillic-300.woff2") format("woff2"),
+		url("../asset/fonts/roboto-v29-latin_cyrillic-300.woff") format("woff");
+}
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Roboto"), url("../asset/fonts/roboto-v29-latin_cyrillic-regular.woff2") format("woff2"),
+		url("../asset/fonts/roboto-v29-latin_cyrillic-regular.woff") format("woff");
+}
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Roboto"), url("../asset/fonts/roboto-v29-latin_cyrillic-700.woff2") format("woff2"),
+		url("../asset/fonts/roboto-v29-latin_cyrillic-700.woff") format("woff");
+}
+@font-face {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Fredoka"), url("../asset/fonts/fredoka-v9-latin-300.woff2") format("woff2"),
+		url("../asset/fonts/fredoka-v9-latin-300.woff") format("woff");
+}
+@font-face {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Fredoka"), url("../asset/fonts/fredoka-v9-latin-regular.woff2") format("woff2"),
+		url("../asset/fonts/fredoka-v9-latin-regular.woff") format("woff");
+}
+@font-face {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	src: local("Fredoka"), url("../asset/fonts/fredoka-v9-latin-600.woff2") format("woff2"),
+		url("../asset/fonts/fredoka-v9-latin-600.woff") format("woff");
+}
+@font-face {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 500;
+	src: local("Fredoka"), url("../asset/fonts/fredoka-v9-latin-500.woff2") format("woff2"),
+		url("../asset/fonts/fredoka-v9-latin-500.woff") format("woff");
+}
+@font-face {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Fredoka"), url("../asset/fonts/fredoka-v9-latin-700.woff2") format("woff2"),
+		url("../asset/fonts/fredoka-v9-latin-700.woff") format("woff");
+}
+
+// Файл обнуляющих стилей
+@import "_nullstyle";
+
+// Библиотека noUiSlider: range-ползунки
+@import "nouislider/dist/nouislider.css";
+
+// Переменные для цвета
+$grey1: #4e4d4d; // можно для шрифта
+$grey2: #545454; // светлее
+$eggshell: #f0ead6; // Eggshell - можно для фона
+$sea-green-dark: #3d5446;
+$green-dark: #272d24;
+$complem-to-green-dark: #2a242d;
+
+$platinum: #e5e4e2; // очень светлый серый - для фона
+$plum-dark: #442f3b;
+$sea-dark: #2f4438;
+$venetian-red: #a42a04;
+$maroon: #800000; // шрифт
+$complem-to-maroon: #008080; // можно для кнопок
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	max-width: 100%;
+	min-height: 100vh;
+	// overflow-x: hidden;
+	min-width: 500px;
+	font-size: 20px;
+	font-weight: 400;
+	// line-height: 30px;
+	font-family: "Fredoka", sans-serif;
+
+	color: $maroon;
+	background: url(../asset/noise_transparent@2x.png) $platinum;
+	// background: $eggshell; // Eggshell
+	// background-image: url("../asset/bg-pattern-5.jpg");
+}
+
+.wrapper {
+	min-height: 100%;
+
+	// display: flex;
+	// flex-direction: column;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+._container {
+	max-width: 1000px;
+	padding: 0px 15px; // secure
+	margin: 0px auto;
+	box-sizing: content-box; // чтобы паддинг не считался частью max-width
+}
+
+//======== header ======================================================================================
+
+.header {
+	padding-top: 10px;
+}
+
+.navigation__garage,
+.navigation__winners {
+	font-family: "Fredoka", sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	border: 2px solid $complem-to-maroon;
+	background-color: $complem-to-maroon;
+	color: $platinum;
+
+	padding: 5px 10px 5px 10px;
+
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		border: 2px solid $maroon;
+		background-color: $maroon;
+	}
+}
+
+//======== common classes for garage and winners ======================================================================================
+
+.page-button {
+	font-family: "Fredoka", sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	border: 2px solid $maroon;
+	background-color: $maroon;
+	color: $platinum;
+
+	padding: 5px 10px 5px 10px;
+
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		border: 2px solid $complem-to-maroon;
+		background-color: $complem-to-maroon;
+	}
+}
+
+.page-button[disabled] {
+	background-color: $platinum;
+	color: $maroon;
+
+	cursor: auto;
+	transition: none;
+
+	&:hover {
+		border: 2px solid $maroon;
+		background-color: $platinum;
+	}
+}
+
+//======== main garage ======================================================================================
+
+.garage__top {
+	display: grid;
+	// grid-template-columns: 2fr 1fr;
+	grid-template-columns: 1fr auto;
+	gap: 10px;
+	justify-content: space-between;
+
+	padding-bottom: 10px;
+
+	@media (max-width: 765px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.garage__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+
+.garage__message {
+	height: 20px;
+
+	// font-size: 20px;
+	font-weight: 600;
+	color: $complem-to-maroon;
+	text-align: center;
+
+	// transition: all 0.3s ease 0s;
+	// animation: easeOutBounce;
+}
+
+.garage__management {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+
+	margin-right: 80px;
+
+	@media (max-width: 765px) {
+		margin-right: 0;
+	}
+}
+
+.create__input-text,
+.update__input-text {
+	width: 110px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.management__create {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.management__update {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.management__generate {
+	align-self: flex-start;
+
+	@media (max-width: 765px) {
+		align-self: center;
+	}
+}
+
+.management-button {
+	font-family: "Fredoka", sans-serif;
+	font-size: 10px;
+	font-weight: 500;
+	text-transform: uppercase;
+	border: 2px solid $complem-to-maroon;
+	background-color: $complem-to-maroon;
+	color: $maroon;
+
+	padding: 5px 10px 5px 10px;
+
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		color: $platinum;
+		border: 2px solid $maroon;
+		background-color: $maroon;
+	}
+}
+
+.management-button[disabled] {
+	background-color: transparent;
+	color: $maroon;
+
+	cursor: auto;
+	transition: none;
+
+	&:hover {
+		color: $maroon;
+		border: 2px solid $complem-to-maroon;
+		background-color: transparent;
+	}
+}
+
+.garage__list {
+	margin-bottom: 10px;
+}
+
+.controls {
+	display: flex;
+	gap: 10px;
+
+	// display: grid;
+	// grid-template-columns: auto auto auto;
+	// grid-template-rows: auto auto;
+}
+
+.controls__button {
+	font-family: "Fredoka", sans-serif;
+	font-size: 10px;
+	font-weight: 500;
+	text-transform: uppercase;
+	border: 2px solid $platinum;
+	background-color: $platinum;
+	// color: $platinum;
+	color: $complem-to-maroon;
+
+	padding: 2px 10px 2px 10px;
+
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		color: $platinum;
+		border: 2px solid $complem-to-maroon;
+		background-color: $complem-to-maroon;
+	}
+}
+
+.controls__button[disabled] {
+	background-color: transparent;
+	cursor: auto;
+
+	&:hover {
+		color: $complem-to-maroon;
+		border: 2px solid $platinum;
+		background-color: transparent;
+	}
+}
+
+.controls__name {
+	padding-left: 20px;
+	@media (max-width: 765px) {
+		font-size: 15px;
+	}
+}
+
+.road {
+	display: flex;
+	gap: 100px;
+	justify-content: space-between;
+	// background-image: url("../asset/bg-pattern-road.jpg");
+}
+
+.road__car {
+	width: 40px;
+}
+
+.road__flag {
+	width: 40px;
+	margin-right: 80px;
+}
+
+//======== main winners ======================================================================================
+
+.winners__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+
+	padding-bottom: 10px;
+}
+
+.sorting select {
+	width: auto;
+	height: 30px;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	font-size: 15px;
+	font-family: "Fredoka", sans-serif;
+	text-transform: uppercase;
+
+	color: $maroon;
+	// color: $platinum;
+
+	// border-radius: 5px;
+	background-color: $complem-to-maroon;
+
+	cursor: pointer;
+}
+
+.winners__list {
+	margin-bottom: 10px;
+}
+
+.winners__headers {
+	display: grid;
+	// grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: 10% 15% 1fr 10% 20%;
+	// grid-template-rows: auto auto;
+
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: uppercase;
+	background-color: $platinum;
+	color: $complem-to-maroon;
+
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.winners__row {
+	display: grid;
+	// grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: 10% 15% 1fr 10% 20%;
+	align-items: center;
+}
+
+.row__color {
+	width: 35px;
+}
+
+//======== footer =============================================================================
+
+.footer__row {
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+}
+
+.github__image {
+	width: 100px;
+	height: auto;
+}
+
+.year {
+	// font-family: "Knewave", sans-serif;
+	font-weight: 700;
+	color: rgb(10, 10, 10);
+}
+
+.rsschool__image {
+	width: 80px;
+	height: auto;
+}
+
+//================================================================================================
